@@ -32,19 +32,13 @@ public class CollectableBase : MonoBehaviour
         OnCollect();
         if (hideOnCollect)
             Invoke("HideObject", timeToHide);
-
-        if (destroyOnCollect)
-            Invoke("DestroyOjbect", timeToDestroy);
+        else if (destroyOnCollect)
+            Destroy(gameObject, timeToDestroy);
     }
 
     protected virtual void HideObject()
     {
         graphicItem.SetActive(false);
-    }
-    
-    protected virtual void DestroyObject()
-    {
-        Destroy(gameObject);
     }
 
     protected virtual void OnCollect()
