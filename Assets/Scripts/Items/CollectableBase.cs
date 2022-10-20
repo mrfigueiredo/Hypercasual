@@ -33,7 +33,12 @@ public class CollectableBase : MonoBehaviour
         if (hideOnCollect)
             Invoke("HideObject", timeToHide);
         else if (destroyOnCollect)
-            Destroy(gameObject, timeToDestroy);
+            DestroyObject(timeToDestroy);
+    }
+
+    protected virtual void DestroyObject(float time)
+    {
+        Destroy(gameObject, time);
     }
 
     protected virtual void HideObject()

@@ -5,11 +5,21 @@ using DG.Tweening;
 
 public class Coin : CollectableBase
 {
+    [Header("Collect Magnet")]
+    public float lerpSpeed = 5f;
+    public float distanceToDestroy = 1f;
+    public float timeToDestroyOnCollect = 0.1f;
+
     private bool _collected = false;
 
     private void Awake()
     {
         
+    }
+
+    protected override void Collect()
+    {
+        OnCollect();
     }
 
     protected override void OnCollect()
@@ -18,18 +28,18 @@ public class Coin : CollectableBase
         {
             _collected = true;
             base.OnCollect();
-            //ItemManager.Instance.AddCoins();
-            StartCoroutine(CollectAnimation());
         }
     }
 
-    IEnumerator CollectAnimation()
+    private void Update()
     {
-        DOTween.Kill(transform);
-        //transform.DOScale(0, collectAnimationDuration).SetEase(collectAnimationEase);
-        yield return new WaitForSeconds(1.5f);
-        Destroy(gameObject);
+        if(_collected)
+        {
+            transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.transform.position, lerpSpeed * Time.deltaTime);
+            if(Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < distanceToDestroy)
+            {
+                DestroyObject(timeToDestroyOnCollect);
+            }
+        }
     }
-
- 
 }
