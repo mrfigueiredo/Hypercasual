@@ -147,6 +147,6 @@ MonoBehaviour:
   destroyOnCollect: 0
   timeToDestroy: 0
   audioSource: {fileID: 0}
-  lerpSpeed: 7
-  distanceToDestroy: 1
+  lerpSpeed: 8
+  distanceToDestroy: 2
   timeToDestroyOnCollect: 0.1
