@@ -12,6 +12,7 @@ public class PowerUpFly : PowerUpBase
     {
         base.StartPowerUp();
         PlayerController.Instance.Fly(flyHeight, duration);
+        PlayerController.Instance.Bounce();
     }
 
     protected override void EndPowerUp()

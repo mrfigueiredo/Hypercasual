@@ -20,6 +20,9 @@ public class PlayerController : Singleton<PlayerController>
 
     [Header("Animation")]
     public AnimatorManager animatorManager;
+    public float growthDuration = .1f;
+    public Ease ease = Ease.OutBack;
+    [SerializeField] private BounceHelper bounceHelper;
 
     private bool _isHittable;
     private bool _canRun;
@@ -39,6 +42,11 @@ public class PlayerController : Singleton<PlayerController>
         StartRun();
     }
 
+    private void Start()
+    {
+        StartAnimation();
+    }
+
     public void StartRun()
     {
         _canRun = true;
@@ -48,6 +56,11 @@ public class PlayerController : Singleton<PlayerController>
     private void PlayAnimationRun()
     {
         animatorManager.PlayAnimationType(AnimatorManager.AnimationType.RUN, _currentSpeed / _currentBaseAnimationSpeed);
+    }
+
+    private void StartAnimation()
+    {
+        transform.DOScale(0, growthDuration).From().SetEase(ease);
     }
 
     private bool checkIsDead()
@@ -73,6 +86,9 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (collision.transform.CompareTag(tagToCompareEnemy) && _isHittable)
         {
+            var _bounceHelper = collision.gameObject.GetComponent<BounceHelper>();
+            if (_bounceHelper != null)
+                _bounceHelper.Bounce();
             OnDeath();
             EndGame(AnimatorManager.AnimationType.DEATH);
         }
@@ -97,6 +113,12 @@ public class PlayerController : Singleton<PlayerController>
         _isDead = true;
         endScreen.SetActive(true);
         animatorManager.PlayAnimationType(animationType);
+    }
+
+    public void Bounce()
+    {
+        if (bounceHelper != null)
+            bounceHelper.Bounce();
     }
 
     #region PowerUps

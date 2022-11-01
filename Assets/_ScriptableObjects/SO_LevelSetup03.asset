@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   artType: 2
   startPiecesNumber: 1
-  middlePiecesNumber: 3
+  middlePiecesNumber: 7
   endPiecesNumber: 1
   startPieces:
   - {fileID: 5786822584910064678, guid: 11b0bd4a126624f4fa98d7385e264a0a, type: 3}
@@ -24,5 +24,9 @@ MonoBehaviour:
   - {fileID: 1171837860421789877, guid: ca39a5fe0ab2e124b9c616d2b7b24001, type: 3}
   - {fileID: 5265160232131888299, guid: 7b915611941eaa94abf8b0af03cfe27b, type: 3}
   - {fileID: 4746721240419289796, guid: 4d060f2c589d5ff4cb41733932bcdabf, type: 3}
+  - {fileID: 4160034301156377785, guid: 88059d161e8b4aa4ba7f8107d7643daa, type: 3}
+  - {fileID: 4850796887399722894, guid: 705cbf10d6a24404f83e869788c78228, type: 3}
+  - {fileID: 8230220278988475933, guid: cf6ac27720e4f4644b307e3ce60f3035, type: 3}
+  - {fileID: 494714287678929652, guid: 8867551e3ecafcd448bed4f98a362633, type: 3}
   endPieces:
   - {fileID: 8405056236411578758, guid: a359bd282751ddc44a29aa0d9716d5f1, type: 3}

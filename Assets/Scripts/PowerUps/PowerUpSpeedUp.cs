@@ -12,6 +12,7 @@ public class PowerUpSpeedUp : PowerUpBase
     {
         base.StartPowerUp();
         PlayerController.Instance.SpeedUp(speedMultiply);
+        PlayerController.Instance.Bounce();
     }
 
     protected override void EndPowerUp()

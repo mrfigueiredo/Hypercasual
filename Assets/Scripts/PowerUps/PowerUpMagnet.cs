@@ -11,6 +11,7 @@ public class PowerUpMagnet : PowerUpBase
     {
         base.StartPowerUp();
         PlayerController.Instance.ChangeCoinCollectorSize(size);
+        PlayerController.Instance.Bounce();
     }
 
     protected override void EndPowerUp()

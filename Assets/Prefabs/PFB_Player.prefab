@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 5162009745142153531}
   - component: {fileID: 5162009745142153528}
   - component: {fileID: 5162009745142153529}
+  - component: {fileID: 1281061940}
   m_Layer: 0
   m_Name: PFB_Player
   m_TagString: Player
@@ -85,7 +86,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 1
 --- !u!114 &5162009745142153529
 MonoBehaviour:
@@ -107,6 +108,24 @@ MonoBehaviour:
   CoinCollector: {fileID: 5162009746239954922}
   endScreen: {fileID: 0}
   animatorManager: {fileID: 5162009746351370987}
+  growthDuration: 2
+  ease: 27
+  bounceHelper: {fileID: 1281061940}
+--- !u!114 &1281061940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5162009745142153533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72fa5508dd91704287a80852e34ffad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleDuration: 0.1
+  scaleBounce: 1.2
+  ease: 27
 --- !u!1 &5162009746239954924
 GameObject:
   m_ObjectHideFlags: 0

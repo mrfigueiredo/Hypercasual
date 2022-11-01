@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private SOLevelSetup _currentLevel;
 
 
-    private void Awake()
+    private void Start()
     {
         _currentLevel = soLevelSetups[Random.Range(0, soLevelSetups.Count)];
         CreateRandomLevel();

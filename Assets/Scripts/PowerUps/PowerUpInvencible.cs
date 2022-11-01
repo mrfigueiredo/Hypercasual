@@ -8,6 +8,7 @@ public class PowerUpInvencible : PowerUpBase
     {
         base.StartPowerUp();
         PlayerController.Instance.UnHittable();
+        PlayerController.Instance.Bounce();
     }
 
     protected override void EndPowerUp()
