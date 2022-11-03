@@ -10,6 +10,8 @@ public class Coin : CollectableBase
     public float distanceToDestroy = 1f;
     public float timeToDestroyOnCollect = 0.1f;
 
+
+
     private bool _collected = false;
 
     private void Awake()
@@ -38,6 +40,7 @@ public class Coin : CollectableBase
             transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.transform.position, lerpSpeed * Time.deltaTime);
             if(Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < distanceToDestroy)
             {
+                HideObject();
                 DestroyObject(timeToDestroyOnCollect);
             }
         }

@@ -32,7 +32,7 @@ public class CollectableBase : MonoBehaviour
         OnCollect();
         if (hideOnCollect)
             Invoke("HideObject", timeToHide);
-        else if (destroyOnCollect)
+        if (destroyOnCollect)
             DestroyObject(timeToDestroy);
     }
 

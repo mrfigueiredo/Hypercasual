@@ -64,10 +64,10 @@ MonoBehaviour:
   graphicItem: {fileID: 6237426861083152844}
   hideOnCollect: 1
   timeToHide: 0.1
-  destroyOnCollect: 1
+  destroyOnCollect: 0
   timeToDestroy: 0.1
   audioSource: {fileID: 0}
-  duration: 3
+  duration: 1
   flyHeight: 2
 --- !u!1 &6237426861083152844
 GameObject:

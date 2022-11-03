@@ -64,7 +64,7 @@ MonoBehaviour:
   graphicItem: {fileID: 5574506715390214833}
   hideOnCollect: 1
   timeToHide: 0.1
-  destroyOnCollect: 1
+  destroyOnCollect: 0
   timeToDestroy: 0.1
   audioSource: {fileID: 0}
   duration: 3

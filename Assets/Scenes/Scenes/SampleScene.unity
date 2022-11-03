@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 0973e306521186e4699fb2765cacd008, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -509,7 +509,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.111882545, y: -0.04147824, z: 0.0046741376, w: 0.9928444}
+  m_LocalRotation: {x: 0.11188255, y: -0.04147823, z: 0.004674136, w: 0.9928444}
   m_LocalPosition: {x: 1.14, y: 3.12, z: -13.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1438,7 +1438,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824015555}
-  m_LocalRotation: {x: 0.111882545, y: -0.04147824, z: 0.0046741376, w: 0.9928444}
+  m_LocalRotation: {x: 0.11188255, y: -0.04147823, z: 0.004674136, w: 0.9928444}
   m_LocalPosition: {x: 1.14, y: 3.12, z: -13.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1736,18 +1736,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1281061940, guid: fa43e6756d4f5034ca2fe524a7bb4dd2, type: 3}
-      propertyPath: ease
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 1281061940, guid: fa43e6756d4f5034ca2fe524a7bb4dd2, type: 3}
-      propertyPath: scaleBounce
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1281061940, guid: fa43e6756d4f5034ca2fe524a7bb4dd2, type: 3}
-      propertyPath: scaleDuration
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 5162009745142153529, guid: fa43e6756d4f5034ca2fe524a7bb4dd2, type: 3}
       propertyPath: target
       value: 

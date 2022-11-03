@@ -7,13 +7,14 @@ public class PlayerController : Singleton<PlayerController>
 {
     [Header("Movement")]
     public float speed = 10f;
+    public Vector2 limits = new Vector2(-3, 3);
 
     [Header("Lerp")]
     public Transform target;
     public float lerpSpeed = 1f;
 
     public string tagToCompareEnemy = "Enemy";
-    public string tagToCompareFinish= "FinishLine";
+    public string tagToCompareFinish = "FinishLine";
 
     public Collider CoinCollector;
     public GameObject endScreen;
@@ -23,28 +24,32 @@ public class PlayerController : Singleton<PlayerController>
     public float growthDuration = .1f;
     public Ease ease = Ease.OutBack;
     [SerializeField] private BounceHelper bounceHelper;
+    public ParticleSystem deathVFX;
 
     private bool _isHittable;
     private bool _canRun;
     private bool _isDead;
     private float _currentSpeed;
     private Vector3 _posTarget;
+
     private Vector3 _startPos;
     private Vector3 _rotateAngleDeath = new Vector3(0, 180, 0);
     private float _currentBaseAnimationSpeed = 7f;
 
+
+
     public void StartGame()
     {
-        _currentSpeed = speed;
-        _isHittable = true;
-        _startPos = transform.position;
-        _isDead = false;
         StartRun();
     }
 
     private void Start()
     {
         StartAnimation();
+        _currentSpeed = speed;
+        _isHittable = true;
+        _startPos = transform.position;
+        _isDead = false;
     }
 
     public void StartRun()
@@ -77,6 +82,10 @@ public class PlayerController : Singleton<PlayerController>
         _posTarget.x = target.position.x;
         _posTarget.y = transform.position.y;
         _posTarget.z = transform.position.z;
+
+        if (_posTarget.x < limits.x) _posTarget.x = limits.x;
+        if (_posTarget.x > limits.y) _posTarget.x = limits.y;
+
         transform.position = Vector3.Lerp(transform.position, _posTarget, lerpSpeed * Time.deltaTime);
         transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
 
@@ -96,7 +105,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(tagToCompareFinish))
+        if (other.CompareTag(tagToCompareFinish))
         {
             EndGame(AnimatorManager.AnimationType.IDLE);
         }
@@ -105,6 +114,8 @@ public class PlayerController : Singleton<PlayerController>
     private void OnDeath()
     {
         transform.DOMoveZ(-1.5f, 0.5f).SetRelative();
+        if (deathVFX != null)
+            deathVFX.Play();
     }
 
     private void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.IDLE)
@@ -132,7 +143,7 @@ public class PlayerController : Singleton<PlayerController>
     public void ResetSpeed()
     {
         _currentSpeed = speed;
-        if(!checkIsDead())
+        if (!checkIsDead())
             PlayAnimationRun();
     }
 
